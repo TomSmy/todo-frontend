@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/assets/css/font.css" type="text/css" />
     <link rel="stylesheet" href="/assets/css/app.css" type="text/css" />
 </head>
-<body>
+<body ng-app="ToDoApp">
 <div class="app app-header-fixed ">
 
 
@@ -180,7 +180,7 @@
             <!-- / link and dropdown -->
 
             <!-- search form -->
-            <form class="navbar-form navbar-form-sm navbar-left shift" ui-shift="prependTo" data-target=".navbar-collapse" role="search" ng-controller="TypeaheadDemoCtrl">
+            <form class="navbar-form navbar-form-sm navbar-left shift" ui-shift="prependTo" data-target=".navbar-collapse" role="search">
                 <div class="form-group">
                     <div class="input-group">
                         <input type="text" ng-model="selected" typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control input-sm bg-light no-border rounded padder" placeholder="Search projects...">
@@ -356,11 +356,11 @@
                         </div>
                     </div>
                     <!-- / main header -->
-                    <div class="wrapper-md" ng-controller="FlotChartDemoCtrl">
+                    <div class="wrapper-md" >
                         <!-- stats -->
                         <div class="row">
                             <div class="col-md-12">
-                                Tutaj kalendarz z zadaniami uzytkownika ikonka
+                                <div ui-view></div>
                             </div>
 
                         </div>
@@ -397,6 +397,7 @@
 <script src="assets/js/ui-load.js"></script>
 <script src="assets/js/ui-nav.js"></script>
 <script src="assets/js/ui-toggle.js"></script>
+<script src="bundle.js"></script>
 
 </body>
 </html>
