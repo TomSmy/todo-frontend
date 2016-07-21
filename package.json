@@ -4,11 +4,14 @@
   "description": "static files",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "webpack --watch"
   },
   "author": "sda squad",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.14.0"
+    "angular-resource": "^1.5.7",
+    "angular-ui-router": "^0.3.1",
+    "express": "^4.14.0",
+    "webpack": "^1.13.1"
   }
 }
