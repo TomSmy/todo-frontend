@@ -4,7 +4,9 @@ module.exports = function ($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state("tasks", {
             url: '/',
-            templateUrl:'task/tasks.html'
+            templateUrl:'task/tasks.html',
+            controller: "TasksCtrl",
+            controllerAs:"ctrl"
         })
 }
 

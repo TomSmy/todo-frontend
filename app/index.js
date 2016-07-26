@@ -6,4 +6,5 @@ angular.module("ToDoApp", [
     'ui.router'
 
 ])
-    .config(require("./config"));
+    .config(require("./config"))
+    .controller("TasksCtrl", require("./task/tasks.ctrl"));
