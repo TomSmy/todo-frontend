@@ -7,4 +7,5 @@ angular.module("ToDoApp", [
 
 ])
     .config(require("./config"))
-    .controller("TasksCtrl", require("./task/tasks.ctrl"));
+    .controller("TasksCtrl", require("./task/tasks.ctrl"))
+    .factory("Task", require("./task/tasks.factory"));

@@ -9,6 +9,7 @@ module.exports = function () {
         this.tasks.push(this.task);
         this.task = {};
     }
+        
 };
 
   

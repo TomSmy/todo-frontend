@@ -1,11 +1,17 @@
 <div class="wrapper-md">
-    <div class="input-group">
+    <div class="input-group" ng-form name="taskForm">
 
-        <input type="text" ng-model="ctrl.task.name" class="form-control" placeholder="Wpisz nazwe nowego zadania">
-        <span class="input-group-btn">
-            <button ng-click="ctrl.addTask()" class="btn btn-default" type="button">Dodaj zadanie!</button>
+        <input type="text" ng-model="ctrl.task.task" class="form-control" placeholder="Wpisz nazwe nowego zadania" required>
+        <span class="input-group-btn" >
+            <button ng-disabled="taskForm.$invalid" ng-click="ctrl.addTask()" class="btn btn-default" type="button">Dodaj zadanie!</button>
         </span>
+
+
+
     </div>
+
+    <span class="alert-danger" ng-show="taskForm.$dirty && taskForm.$invalid" ><p style="font-size:130%;">Nazwa jest wymagana!</p></span>
+
 </div>
 
 
