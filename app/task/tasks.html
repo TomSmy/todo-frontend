@@ -1,126 +1,36 @@
-<div class="input-group">
-    <input placeholder="Wpisz nazwe nowego zadania" type="text" class="form-control">
-    <span class="input-group-btn"><button class="btn btn-default" type="button">Dodaj zadanie!</button></span>
+<div class="wrapper-md">
+    <div class="input-group">
+
+        <input type="text" ng-model="ctrl.task.name" class="form-control" placeholder="Wpisz nazwe nowego zadania">
+        <span class="input-group-btn">
+            <button ng-click="ctrl.addTask()" class="btn btn-default" type="button">Dodaj zadanie!</button>
+        </span>
+    </div>
 </div>
 
 
-
-
-    <div class="">
-        <h4>Lista zadań</h4>
-        <table class="table table-bordered table-hover table-condensed bg-white-only">
-            <tbody><tr style="font-weight: bold">
-                <td style="width:35%">Nazwa zadania</td>
-                <td style="width:20%">Priorytet</td>
-                <td style="width:20%">Data</td>
-                <td style="width:25%">Edycja</td>
-
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="panel-heading">Tasks list</div>
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>task</th>
+                <th>name</th>
+                <th>date</th>
+                <th>priority</th>
+                <th>status</th>
             </tr>
-            <!-- ngRepeat: user in users --><tr ng-repeat="user in users" class="ng-scope">
-
-                <td class="v-middle">
-                    <!-- editable username (text with validation) -->
-        <span editable-text="user.name" e-name="name" e-form="rowform" onbeforesave="checkName($data, user.id)" e-required="" class="ng-scope ng-binding editable">
-          awesome user1
-        </span>
-                </td>
-                <td class="v-middle">
-                    <!-- editable status (select-local) -->
-        <span editable-select="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses" class="ng-scope ng-binding editable">
-          status2
-        </span>
-                </td>
-                <td class="v-middle">
-                    <!-- editable group (select-remote) -->
-        <span editable-select="user.group" e-name="group" onshow="loadGroups()" e-form="rowform" e-ng-options="g.id as g.text for g in groups" class="ng-scope ng-binding editable">
-          admin
-        </span>
-                </td>
-                <td style="white-space: nowrap">
-                    <!-- form -->
-                    <form editable-form="" name="rowform" onbeforesave="saveUser($data, user.id)" ng-show="rowform.$visible" class="form-buttons form-inline ng-pristine ng-valid ng-hide" shown="inserted == user" aria-hidden="true">
-                        <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-sm btn-info" aria-disabled="false">
-                            save
-                        </button>
-                        <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-sm btn-default" aria-disabled="false">
-                            cancel
-                        </button>
-                    </form>
-                    <div class="buttons" ng-show="!rowform.$visible" aria-hidden="false">
-                        <button class="btn btn-sm btn-info" ng-click="rowform.$show()">edit</button>
-                        <button class="btn btn-sm btn-danger" ng-click="removeUser($index)">del</button>
-                    </div>
-                </td>
-            </tr><!-- end ngRepeat: user in users --><tr ng-repeat="user in users" class="ng-scope">
-                <td class="v-middle">
-                    <!-- editable username (text with validation) -->
-        <span editable-text="user.name" e-name="name" e-form="rowform" onbeforesave="checkName($data, user.id)" e-required="" class="ng-scope ng-binding editable">
-          awesome user2
-        </span>
-                </td>
-                <td class="v-middle">
-                    <!-- editable status (select-local) -->
-        <span editable-select="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses" class="ng-scope ng-binding editable editable-empty">
-          Not set
-        </span>
-                </td>
-                <td class="v-middle">
-                    <!-- editable group (select-remote) -->
-        <span editable-select="user.group" e-name="group" onshow="loadGroups()" e-form="rowform" e-ng-options="g.id as g.text for g in groups" class="ng-scope ng-binding editable">
-          vip
-        </span>
-                </td>
-                <td style="white-space: nowrap">
-                    <!-- form -->
-                    <form editable-form="" name="rowform" onbeforesave="saveUser($data, user.id)" ng-show="rowform.$visible" class="form-buttons form-inline ng-pristine ng-valid ng-hide" shown="inserted == user" aria-hidden="true">
-                        <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-sm btn-info" aria-disabled="false">
-                            save
-                        </button>
-                        <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-sm btn-default" aria-disabled="false">
-                            cancel
-                        </button>
-                    </form>
-                    <div class="buttons" ng-show="!rowform.$visible" aria-hidden="false">
-                        <button class="btn btn-sm btn-info" ng-click="rowform.$show()">edit</button>
-                        <button class="btn btn-sm btn-danger" ng-click="removeUser($index)">del</button>
-                    </div>
-                </td>
-            </tr><!-- end ngRepeat: user in users --><tr ng-repeat="user in users" class="ng-scope">
-                <td class="v-middle">
-                    <!-- editable username (text with validation) -->
-        <span editable-text="user.name" e-name="name" e-form="rowform" onbeforesave="checkName($data, user.id)" e-required="" class="ng-scope ng-binding editable">
-          awesome user3
-        </span>
-                </td>
-                <td class="v-middle">
-                    <!-- editable status (select-local) -->
-        <span editable-select="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses" class="ng-scope ng-binding editable">
-          status2
-        </span>
-                </td>
-                <td class="v-middle">
-                    <!-- editable group (select-remote) -->
-        <span editable-select="user.group" e-name="group" onshow="loadGroups()" e-form="rowform" e-ng-options="g.id as g.text for g in groups" class="ng-scope ng-binding editable editable-empty">
-          Not set
-        </span>
-                </td>
-                <td style="white-space: nowrap">
-                    <!-- form -->
-                    <form editable-form="" name="rowform" onbeforesave="saveUser($data, user.id)" ng-show="rowform.$visible" class="form-buttons form-inline ng-pristine ng-valid ng-hide" shown="inserted == user" aria-hidden="true">
-                        <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-sm btn-info" aria-disabled="false">
-                            save
-                        </button>
-                        <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-sm btn-default" aria-disabled="false">
-                            cancel
-                        </button>
-                    </form>
-                    <div class="buttons" ng-show="!rowform.$visible" aria-hidden="false">
-                        <button class="btn btn-sm btn-info" ng-click="rowform.$show()">edit</button>
-                        <button class="btn btn-sm btn-danger" ng-click="removeUser($index)">del</button>
-                    </div>
-                </td>
-            </tr><!-- end ngRepeat: user in users -->
-            </tbody></table>
-
-
+            </thead>
+            <tbody>
+            <tr ng-repeat="ctrl in ctrl.tasks">
+                <td>{{ctrl.task}}</td>
+                <td>{{ctrl.name}}</td>
+                <td>{{ctrl.date}}</td>
+                <td>{{ctrl.priority}}</td>
+                <td>{{ctrl.status}}</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
+</div>
