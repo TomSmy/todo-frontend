@@ -9,6 +9,12 @@ module.exports = function () {
         this.tasks.push(this.task);
         this.task = {};
     }
+
+    this.removeRow=function (index) {
+        console.log("remove");
+        this.tasks.splice(index, 1);
+    }
+
         
 };
 
