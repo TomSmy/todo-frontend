@@ -8,7 +8,12 @@ module.exports = function () {
     this.addTask = function () {
         this.tasks.push(this.task);
         this.task = {};
+
     }
+    this.updateTask = function() {
+        console.log("sime")
+        // return $http.post('/updateTask', this.task);
+    };
         
 };
 

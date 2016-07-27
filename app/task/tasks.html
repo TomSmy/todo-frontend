@@ -26,15 +26,18 @@
                 <th>date</th>
                 <th>priority</th>
                 <th>status</th>
+                <th>delete
+                </th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="ctrl in ctrl.tasks">
-                <td>{{ctrl.task}}</td>
-                <td>{{ctrl.name}}</td>
-                <td>{{ctrl.date}}</td>
-                <td>{{ctrl.priority}}</td>
-                <td>{{ctrl.status}}</td>
+                <td editable-text="ctrl.task" onaftersave="ctrl.updateTask()">{{ctrl.task}}</td>
+                <td editable-text="ctrl.name" onaftersave="ctrl.updateTask()">{{ctrl.name}}</td>
+                <td editable-text="ctrl.date" onaftersave="ctrl.updateTask()">{{ctrl.date}}</td>
+                <td editable-text="ctrl.priority" onaftersave="ctrl.updateTask()">{{ctrl.priority}}</td>
+                <td editable-text="ctrl.status" onaftersave="ctrl.updateTask()">{{ctrl.status}}</td>
+                <td></td>
             </tr>
             </tbody>
         </table>
