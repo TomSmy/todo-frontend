@@ -30,13 +30,15 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="ctrl in ctrl.tasks">
-                <td editable-text="ctrl.task" onaftersave="ctrl.updateTask()">{{ctrl.task}}</td>
-                <td editable-text="ctrl.name" onaftersave="ctrl.updateTask()">{{ctrl.name}}</td>
-                <td editable-text="ctrl.date" onaftersave="ctrl.updateTask()">{{ctrl.date}}</td>
-                <td editable-text="ctrl.priority" onaftersave="ctrl.updateTask()">{{ctrl.priority}}</td>
-                <td editable-text="ctrl.status" onaftersave="ctrl.updateTask()">{{ctrl.status}}</td>
+            <tr ng-repeat="task in ctrl.tasks">
+                <td editable-text="task.task" onaftersave="task.updateTask()">{{task.task}}</td>
+                <td editable-text="task.name" onaftersave="task.updateTask()">{{task.name}}</td>
+                <td editable-text="task.date" onaftersave="task.updateTask()">{{task.date}}</td>
+                <td editable-text="task.priority" onaftersave="task.updateTask()">{{task.priority}}</td>
+                <td editable-text="task.status" onaftersave="task.updateTask()">{{task.status}}</td>
                 <td>{{task.edit}}<button type="button" class="btn btn-danger" data-ng-click="ctrl.removeRow($index)">Delete</button></td>
+                <td><button class="btn btn-danger" ng-click="ctrl.removeUser($index)">del</button></td>
+
             </tr>
             </thead>
         </table>

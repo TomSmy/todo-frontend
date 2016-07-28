@@ -1,4 +1,4 @@
-module.exports = function () {
+module.exports = function taskController($window) {
     this.task = {};
     this.tasks = [{"task":"shopping","name":"John","date":new Date(),"priority":"high","status":"pending"},
         {"task":"cleaning","name":"Jack","date":new Date(),"priority":"low","status":"in progress"},
@@ -19,6 +19,9 @@ module.exports = function () {
         console.log("remove", index);
         this.tasks.splice(index, 1);
     };
+    this.removeUser = function(index) {
+        this.tasks.splice(index, 1);
+    }
 
     window.removeRow=this.removeRow.bind(this)
 
