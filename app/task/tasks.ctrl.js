@@ -9,11 +9,19 @@ module.exports = function () {
         this.tasks.push(this.task);
         this.task = {};
 
-    }
+    };
     this.updateTask = function() {
-        console.log("sime")
+        console.log("sime");
         // return $http.post('/updateTask', this.task);
     };
+
+    this.removeRow=function (index) {
+        console.log("remove", index);
+        this.tasks.splice(index, 1);
+    };
+
+    window.removeRow=this.removeRow.bind(this)
+
         
 };
 

@@ -26,8 +26,7 @@
                 <th>date</th>
                 <th>priority</th>
                 <th>status</th>
-                <th>delete
-                </th>
+                <th>delete</th>
             </tr>
             </thead>
             <tbody>
@@ -37,9 +36,9 @@
                 <td editable-text="ctrl.date" onaftersave="ctrl.updateTask()">{{ctrl.date}}</td>
                 <td editable-text="ctrl.priority" onaftersave="ctrl.updateTask()">{{ctrl.priority}}</td>
                 <td editable-text="ctrl.status" onaftersave="ctrl.updateTask()">{{ctrl.status}}</td>
-                <td></td>
+                <td>{{task.edit}}<button type="button" class="btn btn-danger" data-ng-click="ctrl.removeRow($index)">Delete</button></td>
             </tr>
-            </tbody>
+            </thead>
         </table>
     </div>
 </div>
