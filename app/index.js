@@ -11,4 +11,9 @@ angular.module("ToDoApp", [
 ])
     .config(require("./config"))
     .controller("TasksCtrl", require("./task/tasks.ctrl"))
-    .factory("Task", require("./task/tasks.factory"));
+    .factory("Task", require("./task/tasks.factory"))
+    .controller('ResourceController',function($scope, Entry) {
+        var entries = Entry.query(function() {
+            console.log(entries);
+    });
+});

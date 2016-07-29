@@ -27,6 +27,7 @@
                 <th>priority</th>
                 <th>status</th>
                 <th>delete</th>
+                <th>move</th>
             </tr>
             </thead>
             <tbody>
@@ -37,7 +38,9 @@
                 <td editable-text="task.priority" onaftersave="task.updateTask()">{{task.priority}}</td>
                 <td editable-text="task.status" onaftersave="task.updateTask()">{{task.status}}</td>
                 <td>{{task.edit}}<button type="button" class="btn btn-danger" data-ng-click="ctrl.removeRow($index)">Delete</button></td>
-                <td><button class="btn btn-danger" ng-click="ctrl.removeUser($index)">del</button></td>
+                <td>{{task.edit}}<button type="button" class="btn btn-danger" ng-show="!$first" ng-click="ctrl.moveUp($index)">move up</button>
+                {{task.edit}}<button type="button" class="btn btn-danger" ng-show="!$last" ng-click="ctrl.moveDown($index)">move down</button>
+                </td>
 
             </tr>
             </thead>
