@@ -1,7 +1,7 @@
 <div class="wrapper-md">
     <div class="input-group" ng-form name="taskForm">
 
-        <input type="text" ng-model="ctrl.task.task" class="form-control" placeholder="Wpisz nazwe nowego zadania" required>
+        <input type="text" ng-model="ctrl.task.description" class="form-control" placeholder="Wpisz nazwe nowego zadania" required>
         <span class="input-group-btn" >
             <button ng-disabled="taskForm.$invalid" ng-click="ctrl.addTask()" class="btn btn-default" type="button">Dodaj zadanie!</button>
         </span>
@@ -32,7 +32,7 @@
             </thead>
             <tbody>
             <tr ng-repeat="task in ctrl.tasks">
-                <td editable-text="task.task" onaftersave="task.updateTask()">{{task.task}}</td>
+                <td editable-text="task.description" onaftersave="task.updatedescription()">{{task.description}} [{{task.id}}]</td>
                 <td editable-text="task.name" onaftersave="task.updateTask()">{{task.name}}</td>
                 <td editable-text="task.date" onaftersave="task.updateTask()">{{task.date}}</td>
                 <td editable-text="task.priority" onaftersave="task.updateTask()">{{task.priority}}</td>
