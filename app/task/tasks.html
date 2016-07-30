@@ -1,7 +1,7 @@
 <div class="wrapper-md">
     <div class="input-group" ng-form name="taskForm">
 
-        <input type="text" ng-model="ctrl.task.task" class="form-control" placeholder="Wpisz nazwe nowego zadania" required>
+        <input type="text" ng-model="ctrl.task.description" class="form-control" placeholder="Wpisz nazwe nowego zadania" required>
         <span class="input-group-btn" >
             <button ng-disabled="taskForm.$invalid" ng-click="ctrl.addTask()" class="btn btn-default" type="button">Dodaj zadanie!</button>
         </span>
@@ -26,19 +26,26 @@
                 <th>date</th>
                 <th>priority</th>
                 <th>status</th>
-                <th>edit</th>
+                <th>delete</th>
+                <th>move</th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="task in ctrl.tasks">
-                <td>{{task.task}}</td>
-                <td>{{task.name}}</td>
-                <td>{{task.date}}</td>
-                <td>{{task.priority}}</td>
-                <td>{{task.status}}</td>
+                <td editable-text="task.description" onaftersave="ctrl.updateTask(task)">{{task.description}} [{{task.id}}] <input ng-model="task.description"></td>
+                <td editable-text="task.name" onaftersave="ctrl.updateTask(task)">{{task.name}}</td>
+                <td editable-text="task.date" onaftersave="ctrl.updateTask(task)">{{task.date}}</td>
+                <td editable-text="task.priority" onaftersave="ctrl.updateTask(task)">{{task.priority}}</td>
+                <td editable-text="task.status" onaftersave="ctrl.updateTask(task)">{{task.status}}</td>
                 <td>{{task.edit}}<button type="button" class="btn btn-danger" data-ng-click="ctrl.removeRow($index)">Delete</button></td>
+                <td>
+                    {{task.edit}}<button type="button" class="btn btn-danger" ng-show="!$first" ng-click="ctrl.moveUp($index)">move up</button>
+                    {{task.edit}}<button type="button" class="btn btn-danger" ng-show="!$last" ng-click="ctrl.moveDown($index)">move down</button>
+                    <button type="button" class="btn btn-info" ng-click="ctrl.updateTask(task)">update</button>
+                </td>
+
             </tr>
-            </tbody>
+            </thead>
         </table>
     </div>
 </div>
