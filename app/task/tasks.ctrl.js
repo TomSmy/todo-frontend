@@ -10,11 +10,6 @@ module.exports = function taskController($window, $http, Task) {
 
     this.tasks = Task.query(); //function() { GET: [{description:"",name:"",date:new Date(),priority:"",status:""},]})}; // ng-resource, query all entries
 
-
-
-
-
-
     this.addTask = function () {
         this.tasks.push(this.task);
 
@@ -24,8 +19,9 @@ module.exports = function taskController($window, $http, Task) {
         this.task = new Task();
 
     };
-    this.updateTask = function() {
-        console.log("sime");
+    this.updateTask = function(task) {
+        console.log("sime", this.task, task);
+        task.$save();
         // return $http.post('/updateTask', this.task);
     };
 
@@ -44,7 +40,7 @@ module.exports = function taskController($window, $http, Task) {
 
     this.moveUp = function(index){
         this.move(index, index - 1);
-
+        
 
     };
 

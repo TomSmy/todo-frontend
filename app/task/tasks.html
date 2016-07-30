@@ -32,14 +32,16 @@
             </thead>
             <tbody>
             <tr ng-repeat="task in ctrl.tasks">
-                <td editable-text="task.description" onaftersave="task.updatedescription()">{{task.description}} [{{task.id}}]</td>
-                <td editable-text="task.name" onaftersave="task.updateTask()">{{task.name}}</td>
-                <td editable-text="task.date" onaftersave="task.updateTask()">{{task.date}}</td>
-                <td editable-text="task.priority" onaftersave="task.updateTask()">{{task.priority}}</td>
-                <td editable-text="task.status" onaftersave="task.updateTask()">{{task.status}}</td>
+                <td editable-text="task.description" onaftersave="ctrl.updateTask(task)">{{task.description}} [{{task.id}}] <input ng-model="task.description"></td>
+                <td editable-text="task.name" onaftersave="ctrl.updateTask(task)">{{task.name}}</td>
+                <td editable-text="task.date" onaftersave="ctrl.updateTask(task)">{{task.date}}</td>
+                <td editable-text="task.priority" onaftersave="ctrl.updateTask(task)">{{task.priority}}</td>
+                <td editable-text="task.status" onaftersave="ctrl.updateTask(task)">{{task.status}}</td>
                 <td>{{task.edit}}<button type="button" class="btn btn-danger" data-ng-click="ctrl.removeRow($index)">Delete</button></td>
-                <td>{{task.edit}}<button type="button" class="btn btn-danger" ng-show="!$first" ng-click="ctrl.moveUp($index)">move up</button>
-                {{task.edit}}<button type="button" class="btn btn-danger" ng-show="!$last" ng-click="ctrl.moveDown($index)">move down</button>
+                <td>
+                    {{task.edit}}<button type="button" class="btn btn-danger" ng-show="!$first" ng-click="ctrl.moveUp($index)">move up</button>
+                    {{task.edit}}<button type="button" class="btn btn-danger" ng-show="!$last" ng-click="ctrl.moveDown($index)">move down</button>
+                    <button type="button" class="btn btn-info" ng-click="ctrl.updateTask(task)">update</button>
                 </td>
 
             </tr>
